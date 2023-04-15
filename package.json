@@ -1,6 +1,9 @@
 {
 	"name": "@undefined/components",
 	"version": "0.0.2-next.0",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
