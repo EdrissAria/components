@@ -1,5 +1,5 @@
 {
-	"name": "components",
+	"name": "@undefined/components",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
@@ -41,5 +41,8 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"yesvelte": "^0.0.2-next.95"
+	}
 }
