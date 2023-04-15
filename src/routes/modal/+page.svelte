@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { modal, confirmModal } from '$lib/modal';
-	import ConfirmModal from '$lib/modal/ConfirmModal.svelte';
-	import ModalProvider from '$lib/modal/ModalProvider.svelte';
+	import { modal, confirmModal, ConfirmModal, ModalProvider } from '@minicms/components';
 	import { Button } from 'yesvelte';
 	import 'yesvelte/css/tabler.css';
 	import InputModal from './InputModal.svelte';
