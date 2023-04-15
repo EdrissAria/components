@@ -1,6 +1,6 @@
 {
-	"name": "@undefined/components",
-	"version": "0.0.2-next.3",
+	"name": "@minicms/components",
+	"version": "0",
 	"publishConfig": {
 		"access": "public"
 	},
