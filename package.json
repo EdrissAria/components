@@ -1,6 +1,6 @@
 {
 	"name": "@undefined/components",
-	"version": "0.0.2-next.0",
+	"version": "0.0.2-next.3",
 	"publishConfig": {
 		"access": "public"
 	},
