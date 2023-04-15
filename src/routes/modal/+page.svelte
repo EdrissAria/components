@@ -56,6 +56,7 @@
 
 <Button on:click={openInputModal2}>Open Modal Chain</Button>
 
+<br />
 {#if message}
 	<pre>
         {message}
