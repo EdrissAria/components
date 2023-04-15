@@ -46,7 +46,7 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"@minicms/components": "^0.0.1",
+		"@minicms/components": "^0.0.2-next.0",
 		"yesvelte": "^0.0.2-next.95"
 	}
 }

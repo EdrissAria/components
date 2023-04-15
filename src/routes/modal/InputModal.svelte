@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { FormInput, Button, El } from 'yesvelte';
-	import BaseModal from '$lib/modal/BaseModal.svelte';
-	import { modal } from '$lib/modal';
+	import { BaseModal, modal } from '@minicms/components';
 
-    export let title: string | undefined = undefined
+	export let title: string | undefined = undefined;
 	export let label: string = 'Label';
 	export let placeholder: string = 'Placeholder...';
 
