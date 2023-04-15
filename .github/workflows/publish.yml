@@ -35,8 +35,8 @@ jobs:
       #     branch: dev
 
   publish-npm:
-    if: ${{ startsWith(github.event.head_commit.message, 'Release') }}
     runs-on: ubuntu-latest
+    if: ${{ startsWith(github.event.head_commit.message, 'Release') }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -44,6 +44,6 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm install
-      - run: npm run publish -- --tag next
+      - run: npm publish --tag next
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
