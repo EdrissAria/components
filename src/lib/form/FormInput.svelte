@@ -10,15 +10,19 @@
 	let state: 'invalid' | undefined = undefined;
 	let hint: string | undefined = undefined;
 
+	function invalid(message: string) {
+		state = 'invalid';
+		hint = message;
+
+		return undefined;
+	}
+
 	function get() {
 		hint = undefined;
 		state = undefined;
 
 		if (value === 'error') {
-			state = 'invalid';
-			hint = 'Value equals to error';
-			// throw new Error('Value equals to error');
-			return undefined;
+			return invalid('Value equals to error');
 		}
 
 		return value;
