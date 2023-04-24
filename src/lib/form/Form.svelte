@@ -29,9 +29,13 @@
 			onSubmit(value);
 		}
 	}
+
+	async function onFormReset(e: any) {
+		value = {};
+	}
 </script>
 
-<form novalidate on:submit|preventDefault={onFormSubmit}>
+<form novalidate on:reset|preventDefault={onFormReset} on:submit|preventDefault={onFormSubmit}>
 	<FormObject bind:errors {errorMessages} bind:get bind:set bind:value>
 		<slot />
 	</FormObject>

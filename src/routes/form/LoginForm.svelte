@@ -12,14 +12,9 @@
 <Form {onSubmit} bind:value>
 	<Card title="Login">
 		<CardBody>
+			<Form.Input required label="Username" placeholder="Enter your username..." name="username" />
 			<Form.Input
-				min={3}
-				max={8}
-				label="Username"
-				placeholder="Enter your username..."
-				name="username"
-			/>
-			<Form.Input
+				required
 				min={3}
 				max={8}
 				label="Password"
@@ -27,21 +22,23 @@
 				name="password"
 				type="password"
 			/>
-			<Divider>Nested</Divider>
-			<Form.Object name="nested">
-				<Form.Input required min={2} max={8} label="Test" name="test" />
-				<Form.Input label="Test 2" name="test2" />
-
-				<FormObject name="nest2">
+			{#if false}
+				<Divider>Nested</Divider>
+				<Form.Object name="nested">
 					<Form.Input required min={2} max={8} label="Test" name="test" />
 					<Form.Input label="Test 2" name="test2" />
 
-					<FormObject name="nest3">
+					<FormObject name="nest2">
 						<Form.Input required min={2} max={8} label="Test" name="test" />
 						<Form.Input label="Test 2" name="test2" />
+
+						<FormObject name="nest3">
+							<Form.Input required min={2} max={8} label="Test" name="test" />
+							<Form.Input label="Test 2" name="test2" />
+						</FormObject>
 					</FormObject>
-				</FormObject>
-			</Form.Object>
+				</Form.Object>
+			{/if}
 		</CardBody>
 
 		<CardFooter>

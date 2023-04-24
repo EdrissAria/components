@@ -14,9 +14,11 @@
 	let fields: Record<string, { get: any; set: any }> = {};
 
 	export let set = async function (newValue: typeof value) {
-		Object.keys(newValue).map((key) => {
+		console.log('set', newValue);
+
+		Object.keys(fields).map((key) => {
 			if (fields[key]) {
-				fields[key].set(newValue[key]);
+				fields[key].set(newValue?.[key] ?? undefined);
 			}
 		});
 	};
