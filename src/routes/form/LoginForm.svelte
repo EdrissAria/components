@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Form } from '$lib';
+	import FormObject from '$lib/form/FormObject.svelte';
 	import { Button, Card, CardActions, CardBody, CardFooter, Divider } from 'yesvelte';
 	import 'yesvelte/css/tabler.css';
 
@@ -11,8 +12,16 @@
 <Form {onSubmit} bind:value>
 	<Card title="Login">
 		<CardBody>
-			<Form.Input label="Username" placeholder="Enter your username..." name="username" />
 			<Form.Input
+				min={3}
+				max={8}
+				label="Username"
+				placeholder="Enter your username..."
+				name="username"
+			/>
+			<Form.Input
+				min={3}
+				max={8}
 				label="Password"
 				placeholder="Enter your password..."
 				name="password"
@@ -20,8 +29,18 @@
 			/>
 			<Divider>Nested</Divider>
 			<Form.Object name="nested">
-				<Form.Input label="Test" name="test" />
+				<Form.Input required min={2} max={8} label="Test" name="test" />
 				<Form.Input label="Test 2" name="test2" />
+
+				<FormObject name="nest2">
+					<Form.Input required min={2} max={8} label="Test" name="test" />
+					<Form.Input label="Test 2" name="test2" />
+
+					<FormObject name="nest3">
+						<Form.Input required min={2} max={8} label="Test" name="test" />
+						<Form.Input label="Test 2" name="test2" />
+					</FormObject>
+				</FormObject>
 			</Form.Object>
 		</CardBody>
 

@@ -1,6 +1,6 @@
-import { getContext } from "svelte";
-import type { FormContext } from ".";
+import { getContext } from 'svelte';
+import type { FormContext } from '.';
 
 export function getFormContext(): FormContext {
-    return getContext('FORM')
+	return getContext('FORM') ?? {};
 }

@@ -4,7 +4,7 @@
 
 	export let value: any | undefined = undefined;
 	export let name: string;
-	const { register, unregister, update } = getFormContext();
+	const { register, unregister, update, setError } = getFormContext();
 
 	export let set = function (newValue: any) {
 		value = newValue;
@@ -22,8 +22,9 @@
 	async function sync(value: any) {
 		try {
 			update(name, await get());
-		} catch (err) {
-			console.log(err);
+			setError(name, undefined);
+		} catch (err: any) {
+			setError(name, err.message);
 		}
 	}
 

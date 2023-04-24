@@ -4,10 +4,14 @@
 	import type { FormContext } from '.';
 	import { onDestroy } from 'svelte';
 
-	let fields: Record<string, { get: any; set: any }> = {};
+	const ctx = getFormContext();
 
 	export let name: string | undefined = undefined;
 	export let value: Record<string, any> = {};
+	export let errorMessages: Record<string, (params?: any) => string> = {};
+	export let errors: Record<string, string> = {};
+
+	let fields: Record<string, { get: any; set: any }> = {};
 
 	export let set = async function (newValue: typeof value) {
 		Object.keys(newValue).map((key) => {
@@ -28,9 +32,7 @@
 				} catch (err) {
 					console.log(err);
 					delete value[key];
-					// value[key] = undefined;
 				} finally {
-					//
 					console.log('finally');
 				}
 			})
@@ -41,8 +43,6 @@
 		return value;
 	};
 
-	const ctx = getFormContext();
-
 	setContext<FormContext>('FORM', {
 		register(name, val) {
 			fields[name] = val;
@@ -51,12 +51,25 @@
 			delete fields[name];
 		},
 		update(nam, val) {
-            if(typeof val !== 'undefined') {
-                value[nam] = val;
+			if (typeof val !== 'undefined') {
+				value[nam] = val;
+			}
 
-            }
 			if (name) {
 				ctx.update(name, value);
+			}
+		},
+		errors: { ...ctx.errors, ...errorMessages },
+		setError(nam, error) {
+			if (name) {
+				ctx.setError(`${name}.${nam}`, error);
+			} else {
+				if (!error) {
+					delete errors[nam];
+				} else {
+					errors[nam] = error;
+				}
+				errors = errors;
 			}
 		}
 	});

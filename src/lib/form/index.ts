@@ -7,8 +7,8 @@ import FormInput from './FormInput.svelte';
 // import AppRadios from "./AppRadios.svelte";
 // import AppCheckboxes from "./AppCheckboxes.svelte";
 // import AppFormArray from "./AppFormArray.svelte";
-import Field from './Field.svelte';
-import FormObject from './Object.svelte';
+import FormField from './FormField.svelte';
+import FormObject from './FormObject.svelte';
 import FormSubmit from './FormSubmit.svelte';
 import FormReset from './FormReset.svelte';
 
@@ -16,10 +16,12 @@ export type FormContext = {
 	register: (name: string, { set, get }: { set: (value: any) => void; get: () => any }) => void;
 	unregister: (name: string) => void;
 	update: (name: string, value: any) => void;
+	errors: Record<string, (param?: any) => string>;
+	setError: (name: string, error: string | undefined) => void;
 };
 
 export type FormType = typeof AppForm & {
-	Field: typeof Field;
+	Field: typeof FormField;
 	Input: typeof FormInput;
 	Submit: typeof FormSubmit;
 	Reset: typeof FormReset;
@@ -34,7 +36,7 @@ export type FormType = typeof AppForm & {
 };
 
 const Form = AppForm as unknown as FormType;
-Form.Field = Field;
+Form.Field = FormField;
 Form.Input = FormInput;
 Form.Submit = FormSubmit;
 Form.Reset = FormReset;
