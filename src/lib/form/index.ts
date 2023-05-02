@@ -11,6 +11,7 @@ import FormField from './FormField.svelte';
 import FormObject from './FormObject.svelte';
 import FormSubmit from './FormSubmit.svelte';
 import FormReset from './FormReset.svelte';
+import FormSelect from './FormSelect.svelte';
 
 export type FormContext = {
 	register: (name: string, { set, get }: { set: (value: any) => void; get: () => any }) => void;
@@ -26,6 +27,7 @@ export type FormType = typeof AppForm & {
 	Submit: typeof FormSubmit;
 	Reset: typeof FormReset;
 	Object: typeof FormObject;
+	Select: typeof FormSelect;
 	//   Input: typeof AppInput;
 	//   Select: typeof AppSelect;
 	//   Checkboxes: typeof AppCheckboxes;
@@ -39,6 +41,7 @@ const Form = AppForm as unknown as FormType;
 Form.Field = FormField;
 Form.Input = FormInput;
 Form.Submit = FormSubmit;
+Form.Select = FormSelect;
 Form.Reset = FormReset;
 Form.Object = FormObject;
 // Form.Select = AppSelect;

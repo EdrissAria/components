@@ -3,6 +3,7 @@
 	import { getFormContext } from './utils';
 	import type { FormContext } from '.';
 	import { onDestroy } from 'svelte';
+	import { El } from 'yesvelte';
 
 	const ctx = getFormContext();
 
@@ -93,4 +94,10 @@
 	}
 </script>
 
-<slot />
+{#if name}
+	<El row {...$$restProps}>
+		<slot />
+	</El>
+{:else}
+	<slot />
+{/if}
