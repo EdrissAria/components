@@ -5,6 +5,7 @@
 	import LoginForm from './LoginForm.svelte';
 	import ConfirmModal from '$lib/modal/ConfirmModal.svelte';
 	import ModalProvider from '$lib/modal/ModalProvider.svelte';
+	import FormCheckBox from '$lib/form/FormCheckBox.svelte';
 
 	function openLoginForm() {
 		modal.open(LoginForm, {
@@ -124,5 +125,14 @@
 				<Form.Submit>Submit</Form.Submit>
 			</Form>
 		</El>
+	</El>
+	<El p=4>
+		<Form>
+			<FormCheckBox
+				name="Cities"
+				label="Cities"
+				items={['Herat', 'Kabul', 'Balkh', 'Kandahar']}
+			/>
+		</Form>
 	</El>
 </El>
