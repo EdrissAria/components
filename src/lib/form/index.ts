@@ -12,6 +12,7 @@ import FormObject from './FormObject.svelte';
 import FormSubmit from './FormSubmit.svelte';
 import FormReset from './FormReset.svelte';
 import FormSelect from './FormSelect.svelte';
+import FormRadio from './FormRadio.svelte'
 
 export type FormContext = {
 	register: (name: string, { set, get }: { set: (value: any) => void; get: () => any }) => void;

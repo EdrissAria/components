@@ -6,6 +6,7 @@
 	import ConfirmModal from '$lib/modal/ConfirmModal.svelte';
 	import ModalProvider from '$lib/modal/ModalProvider.svelte';
 	import FormCheckBox from '$lib/form/FormCheckBox.svelte';
+	import FormRadio from '$lib/form/FormRadio.svelte';
 
 	function openLoginForm() {
 		modal.open(LoginForm, {
@@ -132,6 +133,15 @@
 				name="Cities"
 				label="Cities"
 				items={['Herat', 'Kabul', 'Balkh', 'Kandahar']}
+			/>
+		</Form>
+	</El>
+	<El px=4>
+		<Form>
+			<FormRadio
+				name="Gender"
+				label="Gender"
+				items={["Male", 'Female']}
 			/>
 		</Form>
 	</El>
