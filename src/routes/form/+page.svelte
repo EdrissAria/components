@@ -6,7 +6,9 @@
 	import ConfirmModal from '$lib/modal/ConfirmModal.svelte';
 	import ModalProvider from '$lib/modal/ModalProvider.svelte';
 	import FormCheckBox from '$lib/form/FormCheckBox.svelte';
-	import FormRadio from '$lib/form/FormRadio.svelte';
+	import FormRadio from '$lib/form/FormRadioGroup.svelte';
+	import FormAutoComplete from '$lib/form/FormAutoComplete.svelte';
+	import FormDatePicker from '$lib/form/FormDatePicker.svelte';
 
 	function openLoginForm() {
 		modal.open(LoginForm, {
@@ -38,7 +40,7 @@
 
 	let value = {};
 
-	function showFormValue(value) {
+	function showFormValue(value: any) {
 		modal.open(ConfirmModal, {
 			title: 'Form Submitted',
 			description: `Form value: ` + JSON.stringify(value)
@@ -122,7 +124,6 @@
 					<Form.Select label="select" name="select" items={['item1', 'item2']} col="3" />
 				</Form.Object>
 				<Form.Select label="select2" name="select2" items={['item1', 'item2', 'item3']} />
-
 				<Form.Submit>Submit</Form.Submit>
 			</Form>
 		</El>
@@ -141,7 +142,23 @@
 			<FormRadio
 				name="Gender"
 				label="Gender"
-				items={["Male", 'Female']}
+				items={["Male", "Female"]}
+			/>
+		</Form>
+	</El>
+	<El px=4>
+		<Form>
+			<FormAutoComplete
+				name="fruits"
+				label="Fruits"
+			/>
+		</Form>
+	</El>
+	<El px=4>
+		<Form>
+			<FormDatePicker
+				name="birth_date"
+				label="Birth Date"
 			/>
 		</Form>
 	</El>

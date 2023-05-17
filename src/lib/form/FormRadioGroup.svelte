@@ -1,10 +1,12 @@
 <script lang="ts">
-	import { CheckboxGroup } from 'yesvelte';
-	import FormField from './FormField.svelte';
+	import { FormRadioGroup } from 'yesvelte';
+    import FormField  from './FormField.svelte'
 
 	export let name: string;
-	export let value: any[] = [];
+
 	export let items: any[] = [];
+	export let value: any | undefined = undefined;
+	export let label: string;
 
 	function set(val: any) {
 		value = val;
@@ -17,8 +19,9 @@
 	function onChange(e: any) {
 		value = e.target.value;
 	}
+  
 </script>
 
 <FormField {name} {get} {set} bind:value>
-	<CheckboxGroup {...$$props} {name} {items} bind:value inline on:change={onChange} />
+	<FormRadioGroup {items} inline {label} {...$$props} bind:value on:change={onChange}/>
 </FormField>
